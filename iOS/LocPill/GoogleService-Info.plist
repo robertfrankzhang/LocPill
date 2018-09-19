@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>257605891662-u5no22fag0nhmahrv9r3d48quolrucum.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.257605891662-u5no22fag0nhmahrv9r3d48quolrucum</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBAHA4L_fiDFBz0K6PdwXp0ISfk7TX1zY8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>257605891662</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.LocPill.LocPill</string>
+	<key>PROJECT_ID</key>
+	<string>locpill-68dae</string>
+	<key>STORAGE_BUCKET</key>
+	<string>locpill-68dae.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:257605891662:ios:67682a72ab1b8b56</string>
+	<key>DATABASE_URL</key>
+	<string>https://locpill-68dae.firebaseio.com</string>
+</dict>
+</plist>
