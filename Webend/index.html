@@ -2,9 +2,84 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>PillBot - Home</title>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  	<link href="style.css" rel="stylesheet">
   </head>
   <body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-default navbar-expand-md navbar-light bg-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+    		<button class="navbar-toggler" type="button" name="button" data-toggled="collapse" data-target="#navbarResponsive">
+    				<span class="navbar-toggler-icon"></span>
+    		</button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+    			<ul class="navbar-nav mr-auto">
+    				<li class="nav-item active">
+    						<a class="nav-link" href="#">Home</a>
+    				</li>
+    				<li class="nav-item">
+    						<a class="nav-link" href="#">Map</a>
+    				</li>
+    				<li class="nav-item">
+    						<a class="nav-link" href="#">Pricing</a>
+    				</li>
+    			</ul>
+
+          <ul class="navbar-nav ml-auto">
+            <button type="button" class="btn btn-lg btn-primary">Sign In</button>
+            <button type="button" class="btn btn-lg btn-outline-secondary">Sign Up</button>
+          </ul>
+      </div>
+
+      </div>
+    </nav>
+
+    <!--Main Panel-->
+    <div class="container-fluid" id="home-main-panel">
+      <div class="col-12" id="home-main-panel-text">
+        <div id="home-main-panel-text-actual">
+          <h1 class="display-2" id="home-title">PillBot</h1>
+          <h3>The Pill Bottle Redesigned.</h3>
+          <button type="button" class="btn btn-lg btn-outline-secondary" id="demo-video-button">Demo Video</button>
+        </div>
+        <!--Pill Design-->
+
+        <img id="top-pill" src="img/topPillHome.png">
+        <img id="bottom-pill" src="img/bottomPillHome.png">
+
+      </div>
+    </div>
+
+
+
+    <!--Caption-->
+    <div class="Captions">
+
+    </div>
+
+    <!--Text Blurb-->
+    <div class="container-fluid" id="home-bottom-blurb">
+      <div class="row">
+        <div class="col-6" id="home-bottom-blurb-left">
+          <h2 class="display-4">Problem Statement</h2>
+          <p>The Opioid Crisis is a big problem. Oh no. Lost insurance money. People are dead. Not a good situation to be in.</p>
+        </div>
+        <div class="col-6" id="home-bottom-blurb-right">
+          <h2 class="display-4">Solution</h2>
+          <p>LocPill solves everything with this piece of nifty hardware. Fun Fact: If you flip things around, you get "Pillock", which is a fancy word for penis.</p>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
 
   </body>
 </html>
