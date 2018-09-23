@@ -25,6 +25,8 @@ function myFunction() {
     document.getElementById("base-label").style.opacity = (scrolled-15)/10;
     document.getElementById("cap-label").style.opacity = (scrolled-15)/10;
     document.getElementById("container-label").style.opacity = (scrolled-15)/10;
+    document.getElementById("base-label").style.top = 400+(scrolled)/2+ "px";
+    document.getElementById("container-label").style.top = 300-(scrolled)/2+ "px"
   }else if (scrolled<=15){
     document.getElementById("base-label").style.opacity = 0;
     document.getElementById("cap-label").style.opacity = 0;

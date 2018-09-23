@@ -8,6 +8,7 @@
 
 import Foundation
 import LBTAComponents
+import LocalAuthentication
 
 class DayCell:DatasourceCell{
     
@@ -108,8 +109,19 @@ class DayCell:DatasourceCell{
     }
     
     @objc func open(tap:UITapGestureRecognizer){
-        print("hdafsd")
         if unlocked{
+            let context:LAContext = LAContext()
+            context.localizedFallbackTitle = ""
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
+                context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Please Authenticate With Your Fingerprint", reply: {(wasCorrect,error) in
+                    if wasCorrect{
+                        print("Correct")
+                    }else{
+                        print("Incorrect")
+                    }
+                    
+                })
+            }
             print("unlocked!")
         }
     }
