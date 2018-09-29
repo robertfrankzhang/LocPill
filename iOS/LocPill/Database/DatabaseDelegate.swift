@@ -16,9 +16,5 @@ protocol DatabaseDelegate {
     func isLoggedIn()->Bool
     func signOut()
     func logIn(email:String?,password:String?)
-    func addContact(name:String,relation:String,number:String)
-    func getContacts(completionHandler:@escaping (_ contacts:[Contact]?)->())
     func getPrescriptions(completionHandler:@escaping (_ prescriptions:[Prescription]?)->())
-    func getDoctorContact(doctorEmail:String,completionHandler:@escaping (_ contact:Contact?)->())
-    func getDoctorEmail(completionHandler:@escaping (_ email:String?)->())
 }

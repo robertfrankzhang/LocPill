@@ -44,7 +44,7 @@ class HomeDataSource: Datasource{
     }
     
     override func cellClasses() -> [DatasourceCell.Type] {
-        return [MonthTopBar.self,staticDayDisplayBar.self, ArrayCell.self,HomeGroupListCell.self]
+        return [MonthTopBar.self,staticDayDisplayBar.self, ArrayCell.self,ProfileCell.self]
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
@@ -55,7 +55,7 @@ class HomeDataSource: Datasource{
         }else if indexPath.section == 2{
             return "hi"
         }else if indexPath.section == 3{
-            return Contact.myContacts[indexPath.item]
+            return Prescription.myPrescriptions[indexPath.item]
         }
         return "hi"
     }
@@ -71,7 +71,7 @@ class HomeDataSource: Datasource{
             return 1 //the uicollectionview
         }
         else if section == 3{
-            return Contact.myContacts.count //# of groups
+            return Prescription.myPrescriptions.count //# of groups
         }else{
             return 0
         }

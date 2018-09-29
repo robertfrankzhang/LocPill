@@ -20,7 +20,6 @@ class HomeDatasourceController:DatasourceController,UITextFieldDelegate{
     static var currentDisplayedYear:Int = 2000 //arbitrary default
     static var own:HomeDatasourceController = HomeDatasourceController()
     
-    static var groupPopup = AddGroupPopup()
     static var subImage = UIImageView()
     static var bg = UIView()
     static var tempSingle = HomeGroupListHeader()
@@ -55,29 +54,6 @@ class HomeDatasourceController:DatasourceController,UITextFieldDelegate{
         if !DatabaseFactory.DB.isLoggedIn(){
             perform(#selector(signOut), with: nil, afterDelay: 0)
         }else{
-            var doctorContactSingleList:[Contact] = []
-            
-            DatabaseFactory.DB.getDoctorEmail(completionHandler: {(email:String?) in
-                let currentEmail = email
-                if let currentEmailExists = currentEmail{
-                    DatabaseFactory.DB.getDoctorContact(doctorEmail: currentEmailExists, completionHandler: {(contact:Contact?) in
-                        let currentContact = contact
-                        if let currentContactExists = currentContact{
-                            doctorContactSingleList.append(currentContactExists)
-                        }
-                    })
-                }
-                
-            })
-            
-            DatabaseFactory.DB.getContacts(completionHandler: {(contactList:[Contact]?) in
-                let currentList = contactList
-                if let currentListExists = currentList{
-                    Contact.myContacts = doctorContactSingleList+currentListExists
-                    HomeDatasourceController.own.collectionView?.reloadData()
-                }
-            })
-            
             DatabaseFactory.DB.getPrescriptions(completionHandler: {(prescriptionList:[Prescription]?) in
                 let currentList = prescriptionList
                 if let currentListExists = currentList{
@@ -91,7 +67,6 @@ class HomeDatasourceController:DatasourceController,UITextFieldDelegate{
         let loginController = LoginDatasourceController()
         DatabaseFactory.DB.signOut()
         present(loginController,animated:true,completion: nil)
-        Contact.myContacts=[]
     }
     
     var userProfileButton = UIButton()
@@ -110,28 +85,10 @@ class HomeDatasourceController:DatasourceController,UITextFieldDelegate{
         signOutButton.setTitleColor(.white, for: .normal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView:signOutButton)
         
-        userProfileButton = UIButton(type: .system)
-        userProfileButton.setImage(#imageLiteral(resourceName: "LocPillWhiteCrop").withRenderingMode(.alwaysOriginal), for: .normal)
-//        userProfileButton.setImage(myCache.currentCache.profilePic.withRenderingMode(.alwaysOriginal), for: .normal)
-        userProfileButton.imageView?.contentMode = .scaleAspectFill
-        userProfileButton.translatesAutoresizingMaskIntoConstraints = false
-        userProfileButton.widthAnchor.constraint(equalToConstant: 17*6/7.0).isActive = true
-        userProfileButton.heightAnchor.constraint(equalToConstant: 35.0*6/7).isActive = true
-        userProfileButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        //userProfileButton.layer.cornerRadius = 15
-        //userProfileButton.layer.masksToBounds = true
-        userProfileButton.addTarget(self, action: #selector(viewProfile), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView:userProfileButton)
-        
         navigationController?.navigationBar.barTintColor = ThemeColor.blue
         let bounds = self.navigationController!.navigationBar.bounds
         navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height*1.5)
         navigationController?.navigationBar.isTranslucent = false
-    }
-    
-    @objc func viewProfile(){
-        let profileController = ProfileController()
-        present(UINavigationController(rootViewController: profileController),animated:true,completion: nil)
     }
     
     static func addMonth(_ month:Int)->Int{
@@ -342,81 +299,5 @@ class HomeDatasourceController:DatasourceController,UITextFieldDelegate{
         HomeDatasourceController.own.collectionView?.reloadData()
         CalendarArrayController.own.collectionView?.reloadData()
         HomeCalendarController.own.collectionView?.reloadData()
-    }
-    
-    static func onGroupPopup(image:UIImageView, h:HomeGroupListHeader){
-        groupPopup.removeFromSuperview()
-        bg.removeFromSuperview()
-        
-        tempSingle = h
-        
-        f = (image.superview?.convert(image.frame, to: nil))!
-        if CGPoint(x:f.maxX,y:f.minY).y > (UIApplication.shared.keyWindow?.frame.height)!/2{//normal
-            groupPopup = AddGroupPopup(position: CGPoint(x:f.maxX,y:f.minY))
-        }else{//thing goes down
-            groupPopup = AddGroupPopup(position: CGPoint(x:f.maxX,y:f.minY))
-        }
-        
-        f = CGRect(x: f.midX-f.size.width*0.35, y: f.midY-f.size.height*0.35, width: f.size.width*0.7, height: f.size.height*0.7)
-        
-        subImage = UIImageView(image: #imageLiteral(resourceName: "add"))
-        subImage.frame = f
-        subImage.transform = CGAffineTransform(rotationAngle:CGFloat.pi/4.0)
-        let gestureTap = UITapGestureRecognizer(target: self, action: #selector(HomeDatasourceController.offGroupPopup(tap:)))
-        subImage.addGestureRecognizer(gestureTap)
-        subImage.isUserInteractionEnabled = true
-        
-        if let keyWindow = UIApplication.shared.keyWindow{
-            bg.backgroundColor = .black
-            bg.frame = keyWindow.frame
-            bg.alpha = 0
-            keyWindow.addSubview(bg)
-            
-            keyWindow.addSubview(subImage)
-            
-            keyWindow.addSubview(groupPopup)
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
-                groupPopup.frame = groupPopup.initFrame
-                bg.alpha = 0.8
-            },completion:nil)
-        }
-        
-    }
-    
-    @objc static func offGroupPopup(tap:UITapGestureRecognizer){
-        subImage.removeFromSuperview()
-        tempSingle.minus()
-        groupPopup.bottomButton.removeFromSuperview()
-        groupPopup.name.removeFromSuperview()
-        groupPopup.phoneNumber.removeFromSuperview()
-        groupPopup.relation.removeFromSuperview()
-        groupPopup.topImg.removeFromSuperview()
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
-            groupPopup.frame = CGRect(x: subImage.frame.midX, y: subImage.frame.midY, width: 0, height: 0)
-            bg.alpha = 0
-        },completion:nil)
-        
-    }
-    
-    static func dismissGroupPopupWithoutTap(){
-        subImage.removeFromSuperview()
-        tempSingle.minus()
-        groupPopup.bottomButton.removeFromSuperview()
-        groupPopup.name.removeFromSuperview()
-        groupPopup.phoneNumber.removeFromSuperview()
-        groupPopup.relation.removeFromSuperview()
-        groupPopup.topImg.removeFromSuperview()
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
-            groupPopup.frame = CGRect(x: subImage.frame.midX, y: subImage.frame.midY, width: 0, height: 0)
-            bg.alpha = 0
-        },completion:nil)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        HomeDatasourceController.groupPopup.name.resignFirstResponder()
-        HomeDatasourceController.groupPopup.relation.resignFirstResponder()
-        HomeDatasourceController.groupPopup.phoneNumber.resignFirstResponder()
-        HomeDatasourceController.own.view.endEditing(true)
-        return false
     }
 }

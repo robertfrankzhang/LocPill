@@ -212,144 +212,22 @@ class HomeGroupListHeader: DatasourceCell{
     
     let titleLabel:UILabel = {
         let label = UILabel()
-        label.text = "My Contacts"
+        label.text = "My Prescriptions"
         label.font = UIFont.boldSystemFont(ofSize: 25)
         label.font.withSize(25)
         label.textColor = ThemeColor.whitish
         return label
     }()
-    
-    lazy var addGroup:UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "add"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        return imageView
-    }()
-    
-    @objc func add(tap:UITapGestureRecognizer){
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations:{
-            self.addGroup.transform = CGAffineTransform(rotationAngle:CGFloat.pi/4.0)
-        },completion:nil)
-        HomeDatasourceController.onGroupPopup(image:addGroup, h: self)
-    }
-    
-    func minus(){
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations:{
-            self.addGroup.transform = CGAffineTransform(rotationAngle:0)
-        },completion:nil)
-    }
-    
+  
     override func setupViews() {
         super.setupViews()
         backgroundColor = ThemeColor.blue
         separatorLineView.isHidden = false
         
         addSubview(titleLabel)
-        addSubview(addGroup)
-        
-        let gestureTap = UITapGestureRecognizer(target: self, action: #selector(self.add(tap:)))
-        addGroup.addGestureRecognizer(gestureTap)
-        addGroup.isUserInteractionEnabled = true
-        
         titleLabel.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: self.frame.height/2-titleLabel.intrinsicContentSize.height/2, leftConstant: self.frame.width/2-titleLabel.intrinsicContentSize.width/2, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-        addGroup.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: self.frame.height/2-40/2, leftConstant: 0, bottomConstant: 0, rightConstant: self.frame.width/12, widthConstant: 40, heightConstant: 40)
-        
     }
-}
-
-
-class HomeGroupListCell: DatasourceCell{
-    
-    var groupID:String = ""
-    var contactNum:String = ""
-    
-    override var datasourceItem: Any?{
-        didSet{
-            let contact = (datasourceItem as? Contact)!
-            nameLabel.text = contact.name
-            roleLabel.text = contact.relation
-            contactNum = contact.number
-        }
-    }
-    
-    let nameLabel:UILabel = {
-        let label = UILabel()
-        label.text = "arb"
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        return label
-    }()
-    
-    let roleLabel:UILabel = {
-        let label = UILabel()
-        label.text = "arb"
-        label.textColor = ThemeColor.darkGray
-        label.font = UIFont.boldSystemFont(ofSize: 13)
-        return label
-    }()
-    
-    let buttonView:UIView = {
-        let view = UIView()
-        view.backgroundColor = ThemeColor.white
-        view.layer.cornerRadius = 5
-        view.layer.masksToBounds = true
-        return view
-    }()
-    
-    let callView:UIView = {
-        let view = UIView()
-        view.backgroundColor = ThemeColor.veryLightGray
-        view.layer.cornerRadius = 5
-        view.layer.masksToBounds = true
-        return view
-        
-//        let imageView = UIButton()
-//        imageView.setImage(#imageLiteral(resourceName: "contact").withRenderingMode(.alwaysOriginal), for: .normal)
-//        imageView.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-//        imageView.addTarget(self, action: #selector(call), for: .touchUpInside)
-//        return imageView
-    }()
-    
-    let callImg:UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "contact"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        return imageView
-    }()
-    
-    override func setupViews() {
-        super.setupViews()
-        backgroundColor = ThemeColor.whitish
-        separatorLineView.isHidden = true
-        
-        addSubview(buttonView)
-        addSubview(nameLabel)
-        addSubview(roleLabel)
-        addSubview(callView)
-        addSubview(callImg)
-        
-        buttonView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: self.frame.width*0.7, heightConstant: self.frame.height-20)
-        
-        nameLabel.anchor(buttonView.topAnchor, left: buttonView.leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        roleLabel.anchor(nameLabel.bottomAnchor, left: buttonView.leftAnchor, bottom: nil, right: nil, topConstant: 3, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        
-        callView.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 10, leftConstant: 0, bottomConstant: 0, rightConstant: 10, widthConstant: self.frame.width*0.3-30, heightConstant: self.frame.height-20)
-        let gestureTap = UITapGestureRecognizer(target: self, action: #selector(call(tap:)))
-        callView.addGestureRecognizer(gestureTap)
-        
-        callImg.anchor(callView.topAnchor, left: callView.leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 22, bottomConstant: 0, rightConstant: 0, widthConstant: 40, heightConstant: 40)
-    }
-    
-    @objc func call(tap:UITapGestureRecognizer){
-        if let url = URL(string: "tel://\(contactNum)"), UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
-    }
-    
-
 }
 
 ///UNUSED:

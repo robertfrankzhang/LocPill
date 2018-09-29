@@ -19,7 +19,6 @@
 		E1284FD42143602900D1E3A7 /* FirebaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FD32143602900D1E3A7 /* FirebaseImpl.swift */; };
 		E1284FD62143609300D1E3A7 /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FD52143609300D1E3A7 /* DatabaseFactory.swift */; };
 		E1284FD8214365B400D1E3A7 /* LoginDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FD7214365B400D1E3A7 /* LoginDatasourceController.swift */; };
-		E1284FDA2143E96000D1E3A7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FD92143E96000D1E3A7 /* ProfileController.swift */; };
 		E1284FDC2143ECD300D1E3A7 /* myCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FDB2143ECD300D1E3A7 /* myCalendar.swift */; };
 		E1284FDF2143EE6F00D1E3A7 /* CalendarArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FDE2143EE6F00D1E3A7 /* CalendarArrayController.swift */; };
 		E1284FE12143EE9A00D1E3A7 /* HomeCalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FE02143EE9A00D1E3A7 /* HomeCalendarController.swift */; };
@@ -30,10 +29,7 @@
 		E1284FEF2143EF8F00D1E3A7 /* CalendarArrayDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FEE2143EF8F00D1E3A7 /* CalendarArrayDatasource.swift */; };
 		E1284FF12143EFA700D1E3A7 /* HomeCalendarDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FF02143EFA700D1E3A7 /* HomeCalendarDatasource.swift */; };
 		E1284FF32143F17600D1E3A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FF22143F17600D1E3A7 /* Extensions.swift */; };
-		E1284FF52144060C00D1E3A7 /* AddGroupPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FF42144060C00D1E3A7 /* AddGroupPopup.swift */; };
-		E1284FF821442ACC00D1E3A7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FF721442ACC00D1E3A7 /* Contact.swift */; };
 		E1284FFA2144496300D1E3A7 /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FF92144496300D1E3A7 /* DayController.swift */; };
-		E1284FFC214452D100D1E3A7 /* ProfileDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FFB214452D100D1E3A7 /* ProfileDatasource.swift */; };
 		E1284FFE2144532F00D1E3A7 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FFD2144532F00D1E3A7 /* ProfileCell.swift */; };
 		E1285000214463ED00D1E3A7 /* DayDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1284FFF214463ED00D1E3A7 /* DayDatasource.swift */; };
 		E12850022144644A00D1E3A7 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12850012144644A00D1E3A7 /* DayCell.swift */; };
@@ -58,7 +54,6 @@
 		E1284FD32143602900D1E3A7 /* FirebaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImpl.swift; sourceTree = "<group>"; };
 		E1284FD52143609300D1E3A7 /* DatabaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
 		E1284FD7214365B400D1E3A7 /* LoginDatasourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDatasourceController.swift; sourceTree = "<group>"; };
-		E1284FD92143E96000D1E3A7 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		E1284FDB2143ECD300D1E3A7 /* myCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myCalendar.swift; sourceTree = "<group>"; };
 		E1284FDE2143EE6F00D1E3A7 /* CalendarArrayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarArrayController.swift; sourceTree = "<group>"; };
 		E1284FE02143EE9A00D1E3A7 /* HomeCalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarController.swift; sourceTree = "<group>"; };
@@ -69,10 +64,7 @@
 		E1284FEE2143EF8F00D1E3A7 /* CalendarArrayDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarArrayDatasource.swift; sourceTree = "<group>"; };
 		E1284FF02143EFA700D1E3A7 /* HomeCalendarDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarDatasource.swift; sourceTree = "<group>"; };
 		E1284FF22143F17600D1E3A7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E1284FF42144060C00D1E3A7 /* AddGroupPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupPopup.swift; sourceTree = "<group>"; };
-		E1284FF721442ACC00D1E3A7 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		E1284FF92144496300D1E3A7 /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
-		E1284FFB214452D100D1E3A7 /* ProfileDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatasource.swift; sourceTree = "<group>"; };
 		E1284FFD2144532F00D1E3A7 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		E1284FFF214463ED00D1E3A7 /* DayDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDatasource.swift; sourceTree = "<group>"; };
 		E12850012144644A00D1E3A7 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
@@ -145,7 +137,6 @@
 			children = (
 				E1284FDD2143EE5900D1E3A7 /* HomeControllers */,
 				E1284FD7214365B400D1E3A7 /* LoginDatasourceController.swift */,
-				E1284FD92143E96000D1E3A7 /* ProfileController.swift */,
 				E1284FF92144496300D1E3A7 /* DayController.swift */,
 			);
 			path = Controller;
@@ -165,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				E1284FEB2143EF6400D1E3A7 /* HomeDatasources */,
-				E1284FFB214452D100D1E3A7 /* ProfileDatasource.swift */,
 				E1284FFF214463ED00D1E3A7 /* DayDatasource.swift */,
 			);
 			path = Models;
@@ -197,7 +187,6 @@
 				E1284FE52143EEF800D1E3A7 /* Home.swift */,
 				E1284FE72143EF1200D1E3A7 /* Array.swift */,
 				E1284FE92143EF3A00D1E3A7 /* Calendar.swift */,
-				E1284FF42144060C00D1E3A7 /* AddGroupPopup.swift */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -215,7 +204,6 @@
 		E1284FF621442ABE00D1E3A7 /* TempObjects */ = {
 			isa = PBXGroup;
 			children = (
-				E1284FF721442ACC00D1E3A7 /* Contact.swift */,
 				E12850032144673900D1E3A7 /* Prescription.swift */,
 			);
 			path = TempObjects;
@@ -356,17 +344,13 @@
 				E12850042144673900D1E3A7 /* Prescription.swift in Sources */,
 				E1284FBB214357BF00D1E3A7 /* LocPill.xcdatamodeld in Sources */,
 				E1284FEA2143EF3A00D1E3A7 /* Calendar.swift in Sources */,
-				E1284FF52144060C00D1E3A7 /* AddGroupPopup.swift in Sources */,
-				E1284FF821442ACC00D1E3A7 /* Contact.swift in Sources */,
 				E1285000214463ED00D1E3A7 /* DayDatasource.swift in Sources */,
 				E1284FCB21435E4300D1E3A7 /* ThemeColor.swift in Sources */,
 				E1284FD42143602900D1E3A7 /* FirebaseImpl.swift in Sources */,
 				E1284FE12143EE9A00D1E3A7 /* HomeCalendarController.swift in Sources */,
 				E1284FE82143EF1200D1E3A7 /* Array.swift in Sources */,
 				E1284FE62143EEF800D1E3A7 /* Home.swift in Sources */,
-				E1284FDA2143E96000D1E3A7 /* ProfileController.swift in Sources */,
 				E1284FD22143600D00D1E3A7 /* DatabaseDelegate.swift in Sources */,
-				E1284FFC214452D100D1E3A7 /* ProfileDatasource.swift in Sources */,
 				E1284FD62143609300D1E3A7 /* DatabaseFactory.swift in Sources */,
 				E1284FB5214357BF00D1E3A7 /* ViewController.swift in Sources */,
 				E1284FED2143EF7C00D1E3A7 /* HomeDataSource.swift in Sources */,
