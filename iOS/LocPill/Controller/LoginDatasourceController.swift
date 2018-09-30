@@ -36,7 +36,7 @@ class LoginDatasourceController:UIViewController, UITextFieldDelegate{
     
     lazy var nameTextField:UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Your Doctor's Email"
+        tf.placeholder = "Your Full Name"
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
         tf.returnKeyType = .done

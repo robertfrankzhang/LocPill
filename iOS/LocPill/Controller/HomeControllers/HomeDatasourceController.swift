@@ -73,7 +73,7 @@ class HomeDatasourceController:DatasourceController,UITextFieldDelegate{
     
     func setupNavigationBarItems(){
         var calendarLabel = UILabel()
-        calendarLabel.text = "My Calendar"
+        calendarLabel.text = "Past Doses"
         calendarLabel.textColor = ThemeColor.whitish
         calendarLabel.font = UIFont.boldSystemFont(ofSize: 25)
         navigationItem.titleView = calendarLabel

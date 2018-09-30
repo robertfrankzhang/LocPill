@@ -104,6 +104,9 @@ class FirebaseImpl:DatabaseDelegate{
         }, withCancel:nil)
     }
     
+    func getPastPrescriptions(completionHandler:@escaping (_ prescriptions:[Prescription]?)->()){
+        completionHandler(nil)
+    }
     
 }
 

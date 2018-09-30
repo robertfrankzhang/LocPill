@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D841B1DCAE372A51388E3D29505DA044"
-               BuildableName = "Pods_LocPill.framework"
-               BlueprintName = "Pods-LocPill"
+               BlueprintIdentifier = "3DA77810BEE331070077B6479447EA78"
+               BuildableName = "MBCircularProgressBar.bundle"
+               BlueprintName = "MBCircularProgressBar-MBCircularProgressBar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D841B1DCAE372A51388E3D29505DA044"
-            BuildableName = "Pods_LocPill.framework"
-            BlueprintName = "Pods-LocPill"
+            BlueprintIdentifier = "3DA77810BEE331070077B6479447EA78"
+            BuildableName = "MBCircularProgressBar.bundle"
+            BlueprintName = "MBCircularProgressBar-MBCircularProgressBar"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

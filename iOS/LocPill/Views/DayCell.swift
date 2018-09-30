@@ -8,42 +8,20 @@
 
 import Foundation
 import LBTAComponents
-import LocalAuthentication
 
 class DayCell:DatasourceCell{
-    
-    var unlocked = false
     
     override var datasourceItem: Any?{
         didSet{
             let drug = datasourceItem as! Prescription
             nameLabel.text = drug.name
-            roleLabel.text = "\(drug.pillsPerDose) pills"
-            for date in drug.timesToTake{
-                let d = myCalendar.parseStringDate(date)
-                if d[0] == HomeDatasourceController.currentDisplayedMonth && d[1] == DayController.own.day && d[2] == HomeDatasourceController.currentDisplayedYear{//If drug time is on selected date
-                    if myCalendar.getMonth() == HomeDatasourceController.currentDisplayedMonth && myCalendar.getYear() == HomeDatasourceController.currentDisplayedYear && myCalendar.getDay() == DayController.own.day{//If selected date is today
-                        //If time is past, unlock, else don't
-                        if d[3] < myCalendar.getHour(){
-                            unlock()
-                        }else if d[3] == myCalendar.getHour(){
-                            if d[4] < myCalendar.getMinute(){
-                                unlock()
-                            }else if d[4] == myCalendar.getMinute(){
-                                if d[5] <= myCalendar.getSecond(){
-                                    unlock()
-                                }
-                            }
-                        }
-                    }//So if the day is past, the drug is no longer valid for taking
-                }
+            if drug.pillsPerDose == 1{
+                roleLabel.text = "\(drug.pillsPerDose) pill maximum"
+            }else{
+                roleLabel.text = "\(drug.pillsPerDose) pills maximum"
             }
+            numImg.text = "arb"
         }
-    }
-    
-    func unlock(){
-        unlocked = true
-        lockImg.image = #imageLiteral(resourceName: "gift")
     }
     
     let nameLabel:UILabel = {
@@ -78,10 +56,22 @@ class DayCell:DatasourceCell{
         return view
     }()
     
-    let lockImg:UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "lockClosed"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        return imageView
+    let numImg:UILabel = {
+        let label = UILabel()
+        label.text = "74"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = ThemeColor.red
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let pLeft:UILabel = {
+        let label = UILabel()
+        label.text = "pills taken"
+        label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.textColor = ThemeColor.red
+        label.textAlignment = .center
+        return label
     }()
     
     override func setupViews() {
@@ -93,7 +83,8 @@ class DayCell:DatasourceCell{
         addSubview(nameLabel)
         addSubview(roleLabel)
         addSubview(numLeftView)
-        addSubview(lockImg)
+        addSubview(numImg)
+        addSubview(pLeft)
         
         buttonView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: self.frame.width*0.7, heightConstant: self.frame.height-20)
         
@@ -102,28 +93,11 @@ class DayCell:DatasourceCell{
         
         numLeftView.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 10, leftConstant: 0, bottomConstant: 0, rightConstant: 10, widthConstant: self.frame.width*0.3-30, heightConstant: self.frame.height-20)
         
-        lockImg.anchor(numLeftView.topAnchor, left: numLeftView.leftAnchor, bottom: nil, right: nil, topConstant: 10, leftConstant: 22, bottomConstant: 0, rightConstant: 0, widthConstant: 40, heightConstant: 40)
-        let gestureTap = UITapGestureRecognizer(target: self, action: #selector(self.open(tap:)))
-        print(lockImg.frame)
-        numLeftView.addGestureRecognizer(gestureTap)
-    }
-    
-    @objc func open(tap:UITapGestureRecognizer){
-        if unlocked{
-            let context:LAContext = LAContext()
-            context.localizedFallbackTitle = ""
-            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
-                context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Please Authenticate With Your Fingerprint", reply: {(wasCorrect,error) in
-                    if wasCorrect{
-                        print("Correct")
-                    }else{
-                        print("Incorrect")
-                    }
-                    
-                })
-            }
-            print("unlocked!")
-        }
+        numImg.anchor(numLeftView.topAnchor, left: numLeftView.leftAnchor, bottom: nil, right: nil, topConstant: 2, leftConstant: 22, bottomConstant: 0, rightConstant: 0, widthConstant: 40, heightConstant: 40)
+        
+        pLeft.anchor(numImg.bottomAnchor, left: numLeftView.leftAnchor, bottom: nil, right: nil, topConstant: -7, leftConstant: 10, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        
+        
     }
     
     

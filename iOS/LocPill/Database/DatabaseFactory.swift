@@ -9,5 +9,5 @@
 import Foundation
 
 class DatabaseFactory{
-    static var DB:FirebaseImpl = FirebaseImpl()
+    static var DB:DatabaseDelegate = FirebaseImpl()
 }

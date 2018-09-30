@@ -17,4 +17,5 @@ protocol DatabaseDelegate {
     func signOut()
     func logIn(email:String?,password:String?)
     func getPrescriptions(completionHandler:@escaping (_ prescriptions:[Prescription]?)->())
+    func getPastPrescriptions(completionHandler:@escaping (_ prescriptions:[Prescription]?)->())
 }

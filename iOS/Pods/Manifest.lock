@@ -45,6 +45,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.12)
   - LBTAComponents (0.1.9)
   - leveldb-library (1.20)
+  - MBCircularProgressBar (0.3.5)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -57,6 +58,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - LBTAComponents (~> 0.1.9)
+  - MBCircularProgressBar
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -71,6 +73,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - LBTAComponents
     - leveldb-library
+    - MBCircularProgressBar
     - nanopb
 
 SPEC CHECKSUMS:
@@ -85,8 +88,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   LBTAComponents: 9a5d314080d1f80208062ccc81a2d25225c5f572
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: c92b840d03146968d86631c02cdaf87ac3df0851
+PODFILE CHECKSUM: 5945c6fbaf15de8d191a12f49f5b3c39aec3de4d
 
 COCOAPODS: 1.5.3
