@@ -104,8 +104,12 @@ class FirebaseImpl:DatabaseDelegate{
         }, withCancel:nil)
     }
     
-    func getPastPrescriptions(completionHandler:@escaping (_ prescriptions:[Prescription]?)->()){
+    func getPastPrescriptions(completionHandler:@escaping (_ prescriptions:[History]?)->()){
         completionHandler(nil)
+    }
+    
+    func openDispenser(pillCount:Int){
+        
     }
     
 }
